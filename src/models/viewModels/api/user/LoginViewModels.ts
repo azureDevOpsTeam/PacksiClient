@@ -1,16 +1,27 @@
 export interface ILoginRequest {
-    phoneNumber: string;
-    password: string;
-  }
-  
-  export interface IForgetPassRequest {
-    email:string;
-  }
-  export interface ILoginResponse {
-    isSuccess: boolean;
-    message: string;
-    token: string;
-    result: boolean;
-    errors: null | string;
-    data: boolean
-  }
+  userName?: string;
+  password: string;
+  validationMethod: number;
+  phonePrefix?: number | string;
+  securityCode: number;
+}
+
+export interface ILoginResponse {
+  validationResult: any | null;
+  requestStatus: {
+    name: string;
+    value: number;
+  };
+  message: string;
+  objectResult: {
+    userFullName: string;
+    samAccountName: string | null;
+    accessTokens: string;
+    tokenId: string;
+    refreshToken: string;
+  };
+  notificationType: {
+    name: string;
+    value: number;
+  };
+}

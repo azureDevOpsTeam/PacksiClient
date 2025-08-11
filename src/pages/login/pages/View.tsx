@@ -1,11 +1,12 @@
 import React from 'react';
+import LoginForm from '../components/Form/LoginForm';
 import LoginAirplane from '../../../assets/images/LoginAirplan.png';
 
 function View() {
   return (
     <div className="flex flex-col lg:flex-row w-full h-screen overflow-hidden">
       <div className="w-full lg:w-1/2 flex items-center justify-center">
-        <p>فرم اینجاست</p>
+        <LoginForm/>
       </div>
       <div className="hidden lg:flex w-1/2 h-full">
         <img

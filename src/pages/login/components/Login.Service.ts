@@ -4,46 +4,30 @@ import { HttpStatus } from "../../../models/enums/HttpStatus";
 import {
   ILoginRequest,
   ILoginResponse,
-  IForgetPassRequest
 } from "../../../models/viewModels/api/user/LoginViewModels";
 import { DefaultApiHeader } from "../../../services/api/ApiHeader";
 import { SetUserToken } from "../../../services/api/ApiToken";
+import { SignIn } from "../../../setting/ApiUrl";
 import Api from "../../../services/api/CallApi";
-import { LoginRequest ,ForgotPassword } from "../../../setting/ApiUrl";
 import * as Yup from "yup";
 
 export const LoginService = async (loginInfo: ILoginRequest) => {
   const result = await Api<ILoginResponse>(
-    LoginRequest,
-    loginInfo,
+    SignIn,
+    { model: loginInfo },
     DefaultApiHeader,
     HttpMethod.POST
   );
 
   if (result.status === HttpStatus.OK) {
-    await SetUserToken(result.data?.token ?? "");
+    console.log("result.data", result.data?.objectResult?.accessTokens);
+    await SetUserToken(result.data?.objectResult?.accessTokens ?? "");
   }
   return result;
 };
 
-export const ForgotPasswordService = async (
-  forgotInfo: IForgetPassRequest
-  
-) => {
-  const result = await Api<IForgetPassRequest>(
-    ForgotPassword,
-    forgotInfo,
-    DefaultApiHeader,
-    HttpMethod.POST
-  );
-  //  if (result.status === HttpStatus.OK) {
-  //    await SetUserToken(result.data?.token ?? "");
-  //  }
-   return result;
-};
 export const ValidationSchema = Yup.object({
-  phoneNumber: Yup.string()
-    .matches(/^(\+98|0)?9\d{9}$/, "شماره تلفن نامعتبر است") // Validate phone number format
-    .required("شماره تلفن الزامی است"),
-  password: Yup.string().required("کلمه عبور الزامی است"),
+  email: Yup.string()
+    .email("ایمیل نامعتبر است") // Validate email format
+    .required("ایمیل الزامی است"),
 });
