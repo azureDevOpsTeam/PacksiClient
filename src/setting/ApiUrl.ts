@@ -14,7 +14,7 @@ export const ApiUrls :any = {
   TotalCapacity: `${BaseUrl}/Dashboard/TotalCapacity`,
   GetNodeTypesDropDown :`${BaseUrl}/NodeData/GetNodeTypesDropDown`,
 };
-export const LoginRequest = `${BaseUrl}/Users/Login`;
+export const    LoginRequest = `${BaseUrl}/Users/Login`;
 export const NodeRequest = `${BaseUrl}/Nodes/GetNodes`;
 export const FleetRequest = `${BaseUrl}/Fleets/GetFleets`;
 export const ZoneRequest = `${BaseUrl}/Zones/GetZones`;
