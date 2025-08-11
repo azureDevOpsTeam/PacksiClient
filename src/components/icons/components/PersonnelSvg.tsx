@@ -1,0 +1,60 @@
+import React from "react";
+
+const PersonnelSvg = ({ strokeColor = "black", strokeWidth = 1.5 }) => {
+    return (
+        <svg
+            width="24"
+            height="25"
+            viewBox="0 0 24 25"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <g id="user-group-02">
+                <path
+                    d="M7.5 20C7.5 19.0344 7.82853 18.0576 8.63092 17.5204C9.59321 16.8761 10.7524 16.5 12 16.5C13.2476 16.5 14.4068 16.8761 15.3691 17.5204C16.1715 18.0576 16.5 19.0344 16.5 20"
+                    stroke={strokeColor}
+                    strokeWidth={strokeWidth}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                />
+                <path
+                    d="M12 14C13.3807 14 14.5 12.8807 14.5 11.5C14.5 10.1193 13.3807 9 12 9C10.6193 9 9.5 10.1193 9.5 11.5C9.5 12.8807 10.6193 14 12 14Z"
+                    stroke={strokeColor}
+                    strokeWidth={strokeWidth}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                />
+                <path
+                    d="M17.5 11.5C18.6101 11.5 19.6415 11.8769 20.4974 12.5224C21.2229 13.0696 21.5 13.9951 21.5 14.9038V15"
+                    stroke={strokeColor}
+                    strokeWidth={strokeWidth}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                />
+                <path
+                    d="M17.5 9C18.6046 9 19.5 8.10457 19.5 7C19.5 5.89543 18.6046 5 17.5 5C16.3954 5 15.5 5.89543 15.5 7C15.5 8.10457 16.3954 9 17.5 9Z"
+                    stroke={strokeColor}
+                    strokeWidth={strokeWidth}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                />
+                <path
+                    d="M6.5 11.5C5.38987 11.5 4.35846 11.8769 3.50256 12.5224C2.77706 13.0696 2.5 13.9951 2.5 14.9038V15"
+                    stroke={strokeColor}
+                    strokeWidth={strokeWidth}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                />
+                <path
+                    d="M6.5 9C7.60457 9 8.5 8.10457 8.5 7C8.5 5.89543 7.60457 5 6.5 5C5.39543 5 4.5 5.89543 4.5 7C4.5 8.10457 5.39543 9 6.5 9Z"
+                    stroke={strokeColor}
+                    strokeWidth={strokeWidth}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                />
+            </g>
+        </svg>
+    );
+};
+
+export default PersonnelSvg;

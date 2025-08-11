@@ -1,0 +1,75 @@
+stages:
+  - build
+  - deploy
+
+###########################
+# DEVELOP BRANCH PIPELINE #
+###########################
+
+build-react-develop:
+  stage: build
+  only:
+    - develop
+  tags:
+    - halazone-builder
+  script:
+    - echo "Installing dependencies..."
+    - npm install
+    - echo "Copying .env.development to .env"
+    - cp .env.development .env
+    - echo "Building React app for development..."
+    - unset CI
+    - npm run build
+  artifacts:
+    paths:
+      - build/
+    expire_in: 1 hour
+
+deploy-react-develop:
+  stage: deploy
+  script:
+    - powershell.exe ./deploy-scripts/develop-deploy.ps1
+  environment:
+    name: dev
+  only:
+    - develop
+  tags:
+    - halazone-dev-publish
+  dependencies:
+    - build-react-develop
+
+###########################
+# STAGING BRANCH PIPELINE #
+###########################
+
+build-react-staging:
+  stage: build
+  only:
+    - staging
+  tags:
+    - halazone-builder
+  script:
+    - echo "Installing dependencies..."
+    - npm ci
+    - echo "Copying .env.staging to .env"
+    - cp .env.staging .env
+    - echo "Building React app for staging..."
+    - unset CI
+    - npm run build
+  artifacts:
+    paths:
+      - build/
+    expire_in: 1 hour
+
+deploy-react-staging:
+  stage: deploy
+  script:
+    - powershell.exe ./deploy-scripts/staging-deploy.ps1
+  environment:
+    name: staging
+  only:
+    - staging
+  tags:
+    - halazone-dev-publish
+  dependencies:
+    - build-react-staging
