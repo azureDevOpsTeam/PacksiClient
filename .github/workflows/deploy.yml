@@ -1,45 +1,44 @@
-name: Deploy React App
+name: CI/CD React Build & Deploy
 
 on:
   push:
     branches:
-      - main  # یا هر برنچی که میخوای
+      - main
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v3
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v3
         with:
-          node-version: 20
+          node-version: 18
 
       - name: Install dependencies
         run: npm install
 
-      - name: Build project
+      - name: Build React app
         run: npm run build
 
-      - name: Deploy to Server
-        uses: appleboy/scp-action@v0.1.7
+      - name: Setup SSH key
+        uses: webfactory/ssh-agent@v0.7.3
         with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          port: ${{ secrets.SSH_PORT }}
-          key: ${{ secrets.SSH_KEY }}
-          source: "build/*"
-          target: "/var/www/client"
+          ssh-private-key: ${{ secrets.SSH_KEY }}
 
-      - name: Restart Nginx (optional)
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          port: ${{ secrets.SSH_PORT }}
-          key: ${{ secrets.SSH_KEY }}
-          script: |
+      - name: Deploy to server
+        run: |
+          ssh -o StrictHostKeyChecking=no -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
+            echo "Deploy started"
+            # اگر نیاز به توقف پروسه‌ای هست اینجا قرار دهید
+          EOF
+
+          rsync -avz -e "ssh -p ${{ secrets.SSH_PORT }}" ./build/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/client/
+
+          ssh -o StrictHostKeyChecking=no -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
+            echo "Reloading Nginx"
             sudo systemctl reload nginx
+          EOF
