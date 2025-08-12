@@ -185,7 +185,7 @@ return (
           onChange={handleInputChange}
           onBlur={handleBlur}
           onKeyDown={handleKeyDown}
-          className={`input w-full text-base text-[#6B7280] font-medium 
+          className={`input w-full text-[10pt] text-[#6B7280] font-medium 
               rounded-[12px] h-[48px] 
               focus:outline-none focus:border focus:border-gray-300
               ${readonly ? "hover:cursor-default border-none " : ""}

@@ -37,8 +37,8 @@ function SignUpForm() {
   );
 
 return (
-  <div className="flex items-center justify-center min-h-screen px-4 ">
-    <div className="w-full max-w-2xl min-h-[700px] p-10 rounded-2xl shadow-lg border border-gray-100">
+  <div className="flex items-center justify-center  px-4 ">
+    <div className="w-full max-w-2xl min-h-[400px] p-10 rounded-2xl">
       <h1 className="text-2xl font-bold mb-2 text-gray-800 text-right">
         ثبت‌نام
       </h1>
@@ -68,7 +68,7 @@ return (
                 name="displayName"
                 placeholder="نام را وارد کنید"
                 className="rounded-[10px]"
-                innerClassName=" rounded-[10px]"
+                innerClassName=" rounded-[10px] border bg-gray-100 border-gray-100"
               />
 
               <AutoComplete
@@ -76,7 +76,8 @@ return (
                 name="phonePrefix"
                 options={prefixes}
                 placeholder="پیش شماره"
-                
+                inputClassName="bg-gray-100"
+                innerClassName=" rounded-[10px] border bg-gray-100 border-gray-100"
                 readonly={true}
                 onChange={(value: any) => setFieldValue("phonePrefix", value)}
               />
@@ -88,7 +89,7 @@ return (
                 name="phoneNumber"
                 placeholder="شماره تلفن را وارد کنید"
                 className="rounded-[10px]"
-                innerClassName="rounded-[10px]  "
+                innerClassName=" rounded-[10px] border bg-gray-100 border-gray-100"
               />
 
               <TextField
@@ -96,7 +97,7 @@ return (
                 name="email"
                 placeholder="ایمیل را وارد کنید"
                 className="rounded-[10px]"
-                innerClassName="rounded-[10px]"
+                innerClassName=" rounded-[10px] border bg-gray-100 border-gray-100"
               />
             </div>
 
@@ -106,12 +107,13 @@ return (
                 name="inviteCode"
                 placeholder="کد دعوت"
                 className="rounded-[10px]"
-                innerClassName=" rounded-[10px] "
+                innerClassName=" rounded-[10px] border bg-gray-100 border-gray-100"
               />
 
               <TextField
                 label="رمز عبور"
                 name="password"
+                innerClassName=" rounded-[10px] border bg-gray-100 border-gray-100"
                 type="password"
                 placeholder="رمز عبور را وارد کنید"
               />

@@ -1,15 +1,13 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { ReactComponent as EyeIcon } from "../../../../components/icons/svg/EyeIcon.svg";
-import { ReactComponent as EyeCloseIcon } from "../../../../components/icons/svg/EyeCloseIcon.svg";
 import { ReactComponent as ChevronLeftIcon } from "../../../../components/icons/svg/ChevronLeftIcon.svg";
 import { LoginService } from "../Login.Service";
 import { CreateToast } from "../../../../components/tools/toast/CreateToast";
 import { ToastType } from "../../../../models/enums/ToastType";
 import { Formik, Form } from "formik";
+import TextField from "../../../../components/tools/textField/TextField";
 
 function LoginForm() {
-  const [showPassword, setShowPassword] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
@@ -69,72 +67,22 @@ function LoginForm() {
           >
             {({ values, handleChange, handleBlur, errors, touched }) => (
               <Form className="space-y-6">
-                <div>
-                  <label
-                    htmlFor="userName"
-                    className="block mb-1 font-medium text-gray-700 dark:text-white"
-                  >
-                    شماره تلفن <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    id="userName"
-                    name="userName"
-                    placeholder="مثلاً 09193559930"
-                    value={values.userName}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white ${
-                      touched.userName && errors.userName
-                        ? "border-red-500"
-                        : "border-gray-300"
-                    } text-right`}
-                  />
-                  {touched.userName && errors.userName && (
-                    <p className="mt-1 text-sm text-red-500">
-                      {errors.userName}
-                    </p>
-                  )}
-                </div>
+                <TextField
+                  label="شماره تلفن"
+                  name="userName"
+                  placeholder="مثلاً 09193559930"
+                  className="rounded-[10px]"
+                  innerClassName=" rounded-[10px] border bg-gray-100 border-gray-100"
+                />
 
-                <div>
-                  <label
-                    htmlFor="password"
-                    className="block mb-1 font-medium text-gray-700 dark:text-white"
-                  >
-                    رمز عبور <span className="text-red-500">*</span>
-                  </label>
-                  <div className="relative">
-                    <input
-                      id="password"
-                      name="password"
-                      type={showPassword ? "text" : "password"}
-                      placeholder="رمز عبور را وارد کنید"
-                      value={values.password}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white ${
-                        touched.password && errors.password
-                          ? "border-red-500"
-                          : "border-gray-300"
-                      } text-right`}
-                    />
-                    <span
-                      onClick={() => setShowPassword(!showPassword)}
-                      className="absolute left-3 top-1/2 -translate-y-1/2 cursor-pointer"
-                    >
-                      {showPassword ? (
-                        <EyeIcon className="w-5 h-5 fill-gray-500 dark:fill-gray-400" />
-                      ) : (
-                        <EyeCloseIcon className="w-5 h-5 fill-gray-500 dark:fill-gray-400" />
-                      )}
-                    </span>
-                  </div>
-                  {touched.password && errors.password && (
-                    <p className="mt-1 text-sm text-red-500">
-                      {errors.password}
-                    </p>
-                  )}
-                </div>
+                <TextField
+                  label="رمز عبور"
+                  name="password"
+                  type="password"
+                  placeholder="رمز عبور را وارد کنید"
+                  className="rounded-[10px]"
+                  innerClassName=" rounded-[10px] border bg-gray-100 border-gray-100"
+                />
 
                 <div className="flex items-center justify-between flex-row-reverse">
                   <div className="flex items-center gap-3">
@@ -172,13 +120,10 @@ function LoginForm() {
                   >
                     {isLoading ? "در حال ورود..." : "ورود"}
                   </button>
-
-
                 </div>
               </Form>
             )}
           </Formik>
-
 
           <div className="mt-5">
             <p className="text-sm font-normal text-center text-gray-700 dark:text-gray-400 sm:text-start">
@@ -187,8 +132,6 @@ function LoginForm() {
                 to="/SignUp"
                 className="text-black hover:text-black dark:text-white"
               >
-
-                
                 ثبت‌نام کنید
               </Link>
             </p>
