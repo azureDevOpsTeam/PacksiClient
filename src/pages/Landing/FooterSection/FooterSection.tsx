@@ -23,52 +23,96 @@ const TelegramIcon = () => (
 
 function FooterSection() {
   return (
-    <>
-      {/* بک‌گراند بالای فوتر */}
+    <div className="w-full">
+      {/* بک‌گراند بالای فوتر - تصویر تکراری */}
       <div
-        className="w-full h-24 bg-no-repeat bg-center bg-cover hidden sm:block"
-        style={{ backgroundImage: `url(${FooterPic})` }}
+        className="w-full h-24 bg-repeat-x bg-center"
+        style={{ 
+          backgroundImage: `url(${FooterPic})`,
+          backgroundSize: 'auto 100%'
+        }}
       />
 
-      {/* فوتر اصلی */}
-      <footer className="bg-gray-900 text-white py-10 mt-0">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            
-            {/* برند */}
-            <div>
-              <h2 className="text-2xl font-bold">MyBrand</h2>
-              <p className="mt-2 text-gray-400 text-sm">
-                ارائه‌دهنده بهترین خدمات با تمرکز بر کیفیت، امنیت و تجربه کاربری.
-              </p>
-            </div>
+      {/* فوتر اصلی - Full Width */}
+       <footer className="w-full bg-gray-900 text-white py-12">
+         <div className="w-full px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              
+              {/* برند */}
+              <div className="lg:col-span-2">
+                <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent mb-4">PacksiClient</h2>
+                <p className="text-gray-300 text-base leading-relaxed mb-6">
+                  ارائه‌دهنده بهترین خدمات حمل و نقل، آموزش رانندگی و اجاره املاک با تمرکز بر کیفیت، امنیت و تجربه کاربری بی‌نظیر.
+                </p>
+                <div className="flex flex-wrap gap-4">
+                  <div className="bg-blue-600/20 backdrop-blur-sm rounded-lg px-4 py-2 border border-blue-500/30">
+                    <span className="text-blue-300 text-sm font-semibold">🚗 حمل و نقل</span>
+                  </div>
+                  <div className="bg-emerald-600/20 backdrop-blur-sm rounded-lg px-4 py-2 border border-emerald-500/30">
+                    <span className="text-emerald-300 text-sm font-semibold">🎓 آموزش رانندگی</span>
+                  </div>
+                  <div className="bg-purple-600/20 backdrop-blur-sm rounded-lg px-4 py-2 border border-purple-500/30">
+                    <span className="text-purple-300 text-sm font-semibold">🏠 اجاره املاک</span>
+                  </div>
+                </div>
+              </div>
 
-            {/* لینک‌ها */}
-            <div>
-              <h3 className="text-xl font-semibold mb-4">لینک‌های مفید</h3>
-              <ul className="space-y-2 text-sm text-gray-300">
-                <li><a href="#" className="hover:text-white">درباره ما</a></li>
-                <li><a href="#" className="hover:text-white">تماس با ما</a></li>
-                <li><a href="#" className="hover:text-white">سوالات متداول</a></li>
-                <li><a href="#" className="hover:text-white">قوانین و مقررات</a></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold mb-4">ما را دنبال کنید</h3>
-              <div className="flex space-x-4 text-gray-300">
-                <a href="#" className="hover:text-white" aria-label="Instagram"><InstagramIcon /></a>
-                <a href="#" className="hover:text-white" aria-label="LinkedIn"><LinkedInIcon /></a>
-                <a href="#" className="hover:text-white" aria-label="Telegram"><TelegramIcon /></a>
+              {/* لینک‌های مفید */}
+              <div>
+                <h3 className="text-xl font-bold mb-6 text-white">لینک‌های مفید</h3>
+                <ul className="space-y-3">
+                  <li><a href="#" className="text-gray-300 hover:text-blue-400 transition-colors duration-300 flex items-center gap-2"><span>📋</span> درباره ما</a></li>
+                  <li><a href="#" className="text-gray-300 hover:text-blue-400 transition-colors duration-300 flex items-center gap-2"><span>📞</span> تماس با ما</a></li>
+                  <li><a href="#" className="text-gray-300 hover:text-blue-400 transition-colors duration-300 flex items-center gap-2"><span>❓</span> سوالات متداول</a></li>
+                  <li><a href="#" className="text-gray-300 hover:text-blue-400 transition-colors duration-300 flex items-center gap-2"><span>📜</span> قوانین و مقررات</a></li>
+                  <li><a href="#" className="text-gray-300 hover:text-blue-400 transition-colors duration-300 flex items-center gap-2"><span>🔒</span> حریم خصوصی</a></li>
+                </ul>
+              </div>
+
+              {/* شبکه‌های اجتماعی */}
+              <div>
+                <h3 className="text-xl font-bold mb-6 text-white">ما را دنبال کنید</h3>
+                <div className="space-y-4">
+                  <a href="#" className="flex items-center gap-3 text-gray-300 hover:text-pink-400 transition-all duration-300 group">
+                    <div className="bg-pink-600/20 p-2 rounded-lg group-hover:bg-pink-600/40 transition-all duration-300">
+                      <InstagramIcon />
+                    </div>
+                    <span className="font-medium">Instagram</span>
+                  </a>
+                  <a href="#" className="flex items-center gap-3 text-gray-300 hover:text-blue-400 transition-all duration-300 group">
+                    <div className="bg-blue-600/20 p-2 rounded-lg group-hover:bg-blue-600/40 transition-all duration-300">
+                      <LinkedInIcon />
+                    </div>
+                    <span className="font-medium">LinkedIn</span>
+                  </a>
+                  <a href="#" className="flex items-center gap-3 text-gray-300 hover:text-cyan-400 transition-all duration-300 group">
+                    <div className="bg-cyan-600/20 p-2 rounded-lg group-hover:bg-cyan-600/40 transition-all duration-300">
+                      <TelegramIcon />
+                    </div>
+                    <span className="font-medium">Telegram</span>
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="border-t border-gray-700 mt-10 pt-6 text-sm text-center text-gray-500">
-            © {new Date().getFullYear()} MyBrand. تمامی حقوق محفوظ است.
-          </div>
-        </div>
-      </footer>
-    </>
+            {/* خط جداکننده و کپی‌رایت */}
+            <div className="border-t border-gray-700/50 mt-12 pt-8">
+              <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+                <div className="text-gray-400 text-sm text-center md:text-right">
+                  © {new Date().getFullYear()} PacksiClient. تمامی حقوق محفوظ است.
+                </div>
+                <div className="flex items-center gap-6 text-sm text-gray-400">
+                  <span className="flex items-center gap-2">
+                    <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                    آنلاین و فعال
+                  </span>
+                  <span>ساخته شده با ❤️ در ایران</span>
+                </div>
+              </div>
+            </div>
+         </div>
+       </footer>
+    </div>
   );
 }
 

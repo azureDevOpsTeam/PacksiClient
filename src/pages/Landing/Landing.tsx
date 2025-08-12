@@ -11,12 +11,25 @@ import HouseRent from '../Landing/FeatureSection/HouseRent';
 import Testimonials from './Testimonials/Testimonials';
 
 function Landing() {
-  return (
-    <div className='h-[3500px]'>
-      
-  <Header />
+  const [screenHeight, setScreenHeight] = React.useState(window.innerHeight);
 
- <HeroSection/>
+  React.useEffect(() => {
+    const handleResize = () => {
+      setScreenHeight(window.innerHeight);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const isLargeScreen = screenHeight > 1080;
+
+  return (
+    <div className='max-w-[1440px] mx-auto min-h-screen'>
+      
+  <Header screenHeight={screenHeight} isLargeScreen={isLargeScreen} />
+
+ <HeroSection screenHeight={screenHeight} isLargeScreen={isLargeScreen} />
 <LastTravel/>
         <FeatureSection/>
         <DrivingTraining/>

@@ -45,18 +45,8 @@ function LoginForm() {
   };
 
   return (
-    <div className="flex flex-col flex-1">
-      <div className="w-full max-w-md pt-10 mx-auto">
-        <Link
-          to="/"
-          className="inline-flex items-center text-sm text-gray-500 transition-colors hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300"
-        >
-          <ChevronLeftIcon className="w-5 h-5" />
-          <span className="mr-2">بازگشت به داشبورد</span>
-        </Link>
-      </div>
-
-      <div className="flex flex-col justify-center flex-1 w-full max-w-md mx-auto text-right">
+    <div className="w-full">
+      <div className="text-right">
         <div>
           <div className="mb-5 sm:mb-8">
             <h1 className="mb-2 font-semibold text-gray-800 text-lg sm:text-xl dark:text-white/90">

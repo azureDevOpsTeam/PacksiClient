@@ -65,7 +65,7 @@
     ]
   },
   "devDependencies": {
-    "@types/leaflet": "^1.9.14",
+    "@types/leaflet": "^1.9.20",
     "@types/react-helmet": "^6.1.11",
     "@types/xlsx": "^0.0.35",
     "autoprefixer": "^10.4.20",
