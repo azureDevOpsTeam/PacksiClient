@@ -175,13 +175,13 @@ export default function TravelList() {
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: scrollbarHideStyle }} />
-      <div className="bg-white/20 backdrop-blur-lg rounded-3xl p-6 shadow-2xl border border-white/30">
+      <div className="bg-white/20 backdrop-blur-lg rounded-3xl p-4 shadow-2xl border border-white/30">
       {/* Header */}
       <div className="text-center mb-6">
-        <h3 className="text-xl font-bold text-white mb-2 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+        <h3 className="text-xl font-bold text-transparent bg-gradient-to-r from-[#11354D] via-[#1e5a7a] to-[#2a6f95] bg-clip-text drop-shadow-lg mb-2">
           پروازهای موجود
         </h3>
-        <p className="text-white/80 text-sm">
+        <p className="text-lg text-gray-600">
           بهترین قیمت‌ها و مسیرهای پروازی را انتخاب کنید
         </p>
       </div>
@@ -190,7 +190,7 @@ export default function TravelList() {
       <div className="relative overflow-hidden">
         <div 
           ref={scrollContainerRef}
-          className="flex gap-4 overflow-x-auto scrollbar-hide pb-4 snap-x snap-mandatory cursor-grab select-none" 
+          className="flex gap-6 overflow-x-auto scrollbar-hide pb-4 snap-x snap-mandatory cursor-grab select-none" 
           style={{scrollbarWidth: 'none', msOverflowStyle: 'none', width: '100%'}}
           onMouseDown={handleMouseDown}
           onMouseLeave={handleMouseLeave}
@@ -200,7 +200,7 @@ export default function TravelList() {
           {travelData.map((travel, index) => (
             <div 
               key={index}
-              className="flex-shrink-0 snap-start transform transition-all duration-500 hover:scale-105"
+              className="flex-shrink-0 snap-start transform transition-all duration-500 hover:scale-[1.02]"
               style={{ 
                 animationDelay: `${index * 0.1}s`,
                 animation: 'fadeInUp 0.6s ease-out forwards'
@@ -216,12 +216,7 @@ export default function TravelList() {
         <div className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gradient-to-l from-white/30 to-transparent w-8 h-full pointer-events-none rounded-r-3xl"></div>
       </div>
 
-      {/* View More Button */}
-       <div className="text-center mt-6">
-         <button className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-2 rounded-2xl font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 hover:from-blue-600 hover:to-purple-700 text-sm">
-           مشاهده همه پروازها
-         </button>
-       </div>
+
      </div>
      </>
    );

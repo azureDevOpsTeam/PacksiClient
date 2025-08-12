@@ -31,7 +31,7 @@ export default function TravelCard({
   price,
 }: TravelCardProps) {
   return (
-    <div className="group relative bg-gradient-to-br from-white via-blue-50/30 to-cyan-50/20 text-[#11354D] rounded-3xl shadow-xl hover:shadow-2xl px-4 py-4 w-[320px] min-w-[320px] max-w-[320px] font-sans border border-white/40 backdrop-blur-sm transition-all duration-300 cursor-pointer overflow-hidden">
+    <div className="group relative bg-gradient-to-br from-white via-blue-50/30 to-cyan-50/20 text-[#11354D] rounded-3xl shadow-xl hover:shadow-2xl px-4 py-4 w-[300px] min-w-[300px] max-w-[300px] font-sans border border-white/40 backdrop-blur-sm transition-all duration-300 cursor-pointer overflow-hidden">
       {/* Decorative background elements */}
       <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-blue-200/20 to-transparent rounded-full blur-xl group-hover:scale-150 transition-transform duration-500"></div>
       <div className="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-cyan-200/15 to-transparent rounded-full blur-lg group-hover:scale-125 transition-transform duration-500"></div>

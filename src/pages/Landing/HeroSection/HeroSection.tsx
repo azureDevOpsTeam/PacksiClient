@@ -9,7 +9,7 @@ interface HeroSectionProps {
 function HeroSection({ screenHeight, isLargeScreen }: HeroSectionProps) {
   // محاسبه ارتفاع و اندازه تصویر براساس نمایشگر
   const sectionHeight = isLargeScreen 
-    ? Math.min(screenHeight * 0.4, 400) // حداکثر 400px برای نمایشگرهای بزرگ
+    ? Math.min(screenHeight * 0.4, 800) // حداکثر 800px برای نمایشگرهای بزرگ
     : 'auto';
   
   const imageSize = isLargeScreen 

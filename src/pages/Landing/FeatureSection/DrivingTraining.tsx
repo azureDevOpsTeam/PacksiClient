@@ -85,12 +85,8 @@ function DrivingTraining() {
             <div className="space-y-4">
               <div className="inline-flex items-center gap-3 bg-white/70 backdrop-blur-sm rounded-full px-6 py-3 shadow-lg border border-white/50">
                 <span className="text-2xl">🚗</span>
-                <span className="text-emerald-700 font-semibold">آموزش حرفه‌ای</span>
+                <span className="text-emerald-700 font-semibold">آموزش رانندگی</span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-emerald-800 via-teal-700 to-cyan-800 bg-clip-text text-transparent leading-tight">
-                آموزش رانندگی
-              </h2>
-              <div className="w-24 h-1 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full"></div>
             </div>
 
             {/* Description */}

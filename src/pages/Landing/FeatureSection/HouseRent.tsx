@@ -146,12 +146,8 @@ function HouseRent() {
             <div className="space-y-4">
               <div className="inline-flex items-center gap-3 bg-white/70 backdrop-blur-sm rounded-full px-6 py-3 shadow-lg border border-white/50">
                 <span className="text-2xl">🏠</span>
-                <span className="text-blue-700 font-semibold">املاک و مستغلات</span>
+                <span className="text-blue-700 font-semibold">اجاره خانه</span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-800 via-indigo-700 to-purple-800 bg-clip-text text-transparent leading-tight">
-                اجاره خانه
-              </h2>
-              <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full"></div>
             </div>
 
             {/* Description */}

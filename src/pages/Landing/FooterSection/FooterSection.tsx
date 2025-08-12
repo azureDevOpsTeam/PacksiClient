@@ -34,7 +34,7 @@ function FooterSection() {
       />
 
       {/* فوتر اصلی - Full Width */}
-       <footer className="w-full bg-gray-900 text-white py-12">
+       <footer className="w-full text-white py-12" style={{backgroundColor: '#1d2b36'}}>
          <div className="w-full px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               

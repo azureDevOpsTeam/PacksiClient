@@ -33,9 +33,7 @@ function LastTravel() {
 
         {/* لیست سفرها */}
         <div className="w-full lg:w-2/3">
-          <div className="bg-gradient-to-br from-white/80 via-blue-50/50 to-cyan-50/30 backdrop-blur-sm rounded-3xl p-6 lg:p-8 shadow-2xl border border-white/20">
-            <TravelList/>
-          </div>
+          <TravelList/>
         </div>
       </div>
     </div>

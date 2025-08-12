@@ -6,52 +6,78 @@ const features = [
     title: 'حمل بار مسافر',
     description: 'سفر می‌کنی؟ با حمل بارهای کوچک و امن دیگران، هزینه سفرت رو جبران کن. هم به مقصد می‌رسی، هم پول به جیبت میاد.',
     bgGradient: 'bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-100',
-    borderGradient: 'border-gradient-to-r from-blue-200 to-indigo-300',
     textColor: 'text-slate-700',
     titleColor: 'text-indigo-800',
     iconBg: 'bg-gradient-to-br from-blue-400 to-indigo-500',
-    corners: "rounded-3xl",
-    shadow: 'shadow-lg hover:shadow-2xl',
-    layout: { span: 'col-span-1' }
+    corners: "rounded-2xl",
+    shadow: 'shadow-md hover:shadow-xl',
+    layout: { span: 'col-span-1', height: 'h-48' },
+    size: 'compact'
   },
   {
     icon: "🚗",
     title: 'آموزش رانندگی',
     description: 'از مربیان مطمئن و نزدیک خودت آموزش رانندگی رو یاد بگیر. با تمرین‌های اصولی و پشتیبانی کامل، آماده شو تا با اعتمادبه‌نفس کامل پشت فرمان بشینی.',
     bgGradient: 'bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-100',
-    borderGradient: 'border-gradient-to-r from-emerald-200 to-teal-300',
     textColor: 'text-slate-700',
     titleColor: 'text-emerald-800',
     iconBg: 'bg-gradient-to-br from-emerald-400 to-teal-500',
     corners: "rounded-3xl",
     shadow: 'shadow-lg hover:shadow-2xl',
-    layout: { span: 'col-span-1 md:col-span-2' }
+    layout: { span: 'col-span-1 md:col-span-2', height: 'h-48' },
+    size: 'large'
   },
   {
     icon: "🏠",
     title: 'اجاره کوتاه‌مدت اتاق',
     description: 'برای سفر یا اقامت کوتاه، راحت و سریع اتاق مورد نیازت رو پیدا و رزرو کن—بدون واسطه و دردسر.',
     bgGradient: 'bg-gradient-to-br from-amber-50 via-orange-50 to-red-100',
-    borderGradient: 'border-gradient-to-r from-amber-200 to-orange-300',
     textColor: 'text-slate-700',
     titleColor: 'text-amber-800',
     iconBg: 'bg-gradient-to-br from-amber-400 to-orange-500',
-    corners: "rounded-3xl",
-    shadow: 'shadow-lg hover:shadow-2xl',
-    layout: { span: 'col-span-1' }
+    corners: "rounded-2xl",
+    shadow: 'shadow-md hover:shadow-xl',
+    layout: { span: 'col-span-1', height: 'h-48' },
+    size: 'medium'
   },
   {
     icon: "🛠️",
     title: 'خدمات شخصی',
     description: 'از کارهای اداری مثل بیمه و گواهینامه تا پیگیری امور شخصی، افراد متخصص رو پیدا کن تا وقتت آزاد بشه.',
     bgGradient: 'bg-gradient-to-br from-violet-50 via-purple-50 to-fuchsia-100',
-    borderGradient: 'border-gradient-to-r from-violet-200 to-purple-300',
     textColor: 'text-slate-700',
     titleColor: 'text-violet-800',
     iconBg: 'bg-gradient-to-br from-violet-400 to-purple-500',
-    corners: "rounded-3xl",
-    shadow: 'shadow-lg hover:shadow-2xl',
-    layout: { span: 'col-span-1' }
+    corners: "rounded-2xl",
+    shadow: 'shadow-md hover:shadow-xl',
+    layout: { span: 'col-span-1', height: 'h-48' },
+    size: 'compact'
+  },
+  {
+    icon: "📱",
+    title: 'پشتیبانی ۲۴/۷',
+    description: 'تیم پشتیبانی ما همیشه آماده کمک به شماست. هر زمان که نیاز داشتید، ما کنارتان هستیم.',
+    bgGradient: 'bg-gradient-to-br from-rose-50 via-pink-50 to-red-100',
+    textColor: 'text-slate-700',
+    titleColor: 'text-rose-800',
+    iconBg: 'bg-gradient-to-br from-rose-400 to-pink-500',
+    corners: "rounded-xl",
+    shadow: 'shadow-sm hover:shadow-lg',
+    layout: { span: 'col-span-1', height: 'h-48' },
+    size: 'small'
+  },
+  {
+    icon: "💳",
+    title: 'پرداخت امن',
+    description: 'با سیستم پرداخت امن و رمزگذاری شده، تراکنش‌های خود را با خیال راحت انجام دهید. امنیت اطلاعات شما اولویت ماست.',
+    bgGradient: 'bg-gradient-to-br from-cyan-50 via-sky-50 to-blue-100',
+    textColor: 'text-slate-700',
+    titleColor: 'text-cyan-800',
+    iconBg: 'bg-gradient-to-br from-cyan-400 to-sky-500',
+    corners: "rounded-2xl",
+    shadow: 'shadow-md hover:shadow-xl',
+    layout: { span: 'col-span-1 md:col-span-2', height: 'h-48' },
+    size: 'wide'
   },
 ];
 
@@ -71,17 +97,23 @@ function FeatureSection() {
         </div>
 
         {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 auto-rows-fr">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-min">
           {features.map((feature, index) => {
+            const paddingClass = feature.size === 'large' ? 'p-6' : feature.size === 'medium' ? 'p-5' : feature.size === 'small' ? 'p-4' : 'p-5';
+            const iconSize = feature.size === 'large' ? 'w-14 h-14' : feature.size === 'small' ? 'w-10 h-10' : 'w-12 h-12';
+             const titleSize = feature.size === 'large' ? 'text-2xl' : feature.size === 'small' ? 'text-lg' : 'text-xl';
+             const descSize = feature.size === 'large' ? 'text-base' : feature.size === 'small' ? 'text-xs' : 'text-sm';
+            
             return (
               <div
                 key={index}
                 className={`
-                  ${feature.bgGradient} ${feature.shadow} ${feature.corners} ${feature.layout.span}
+                  ${feature.bgGradient} ${feature.shadow} ${feature.corners} ${feature.layout.span} ${feature.layout.height}
                   border border-white/50 backdrop-blur-sm
                   transform transition-all duration-500 ease-out
                   group cursor-pointer overflow-hidden
-                  relative p-8
+                  relative ${paddingClass}
+                  hover:scale-[1.02] hover:-translate-y-1
                 `}
               >
                 {/* Background Pattern */}
@@ -95,23 +127,27 @@ function FeatureSection() {
                 <div className="relative z-10 text-right">
                   {/* Icon */}
                   <div className={`
-                    ${feature.iconBg} w-16 h-16 rounded-2xl flex items-center justify-center
-                    mb-6 shadow-lg
-                    mr-auto
+                    ${feature.iconBg} ${iconSize} rounded-2xl flex items-center justify-center
+                    mb-4 shadow-lg
+                    mr-auto transform transition-all duration-300
+                    group-hover:scale-110 group-hover:rotate-3
                   `}>
-                    <span className="text-2xl filter drop-shadow-sm">{feature.icon}</span>
+                    <span className={`${feature.size === 'large' ? 'text-2xl' : feature.size === 'small' ? 'text-lg' : 'text-xl'} filter drop-shadow-sm`}>{feature.icon}</span>
                   </div>
 
                   {/* Title */}
                   <h3 className={`
-                    text-2xl font-bold mb-4 ${feature.titleColor}
+                    ${titleSize} font-bold mb-2 ${feature.titleColor}
+                    transform transition-all duration-300
+                    group-hover:text-opacity-90
                   `}>
                     {feature.title}
                   </h3>
 
                   {/* Description */}
                   <p className={`
-                    text-base leading-relaxed ${feature.textColor}
+                    ${descSize} leading-relaxed ${feature.textColor}
+                    transform transition-all duration-300
                   `}>
                     {feature.description}
                   </p>
@@ -132,13 +168,7 @@ function FeatureSection() {
           })}
         </div>
 
-        {/* Bottom Decorative Elements */}
-        <div className="mt-16 flex justify-center space-x-2">
-          <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
-          <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
-          <div className="w-2 h-2 bg-amber-400 rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></div>
-          <div className="w-2 h-2 bg-violet-400 rounded-full animate-pulse" style={{animationDelay: '0.6s'}}></div>
-        </div>
+
       </div>
     </section>
   );
