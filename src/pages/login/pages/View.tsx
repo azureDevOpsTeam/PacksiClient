@@ -1,6 +1,6 @@
 import React from 'react';
 import LoginForm from '../components/Form/LoginForm';
-import LoginAirplane from "../../../assets/images/LoginAirplan.png";
+import LoginAirplane from "../../../assets/images/LoginAirport.png";
 
 function View() {
   return (
@@ -10,11 +10,11 @@ function View() {
             <div className="w-full md:w-5/12 flex items-center justify-center p-4 md:p-6">
               <LoginForm/>
             </div>
-            <div className="hidden md:flex w-7/12 h-[600px]">
+            <div className="hidden md:flex w-7/12 h-[600px] ">
               <img
                 src={LoginAirplane}
                 alt="Login Airplane"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover "
               />
             </div>
           </div>
