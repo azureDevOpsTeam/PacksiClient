@@ -194,7 +194,7 @@ function LoginForm() {
             <p className="text-sm font-normal text-center text-gray-700 dark:text-gray-400 sm:text-start">
               حساب کاربری ندارید؟{" "}
               <Link
-                to="/signup"
+                to="/SignUp"
                 className="text-black hover:text-black dark:text-white"
               >
 
