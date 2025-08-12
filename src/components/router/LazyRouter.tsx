@@ -29,7 +29,7 @@ const LazyRouter = () => {
         <Route path="/login" element={<Login />} />
 
         {/* مسیر پیش‌فرض */}
-        <Route path="/" element={<Navigate to="/login" />} />
+        <Route path="/" element={<Navigate to="/landing" />} />
 
         {/* همه مسیرها */}
         {routes.map((route, index) => (

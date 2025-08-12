@@ -40,31 +40,33 @@ function Header({ screenHeight, isLargeScreen }: HeaderProps) {
         </button>
       </div>
 
-<div className={isLargeScreen ? "relative mb-[30px] mx-[50px]" : "relative h-[calc(100vh-200px)] mb-[30px] mx-[50px]"} style={isLargeScreen ? { height: `${Math.min(screenHeight * 0.6, 650)}px` } : {}}>
+<div className={isLargeScreen ? "relative mb-[30px] mx-[50px]" : "relative h-[calc(100vh-200px)] mb-[30px] mx-[50px]"} style={isLargeScreen ? { height: `${Math.min(screenHeight * 0.6, 650)}px`, maxHeight: '800px' } : { maxHeight: '800px' }}>
   <div
     className="relative h-full bg-cover bg-center rounded-[24px]"
     style={{ backgroundImage: `url(${cloudySky})` }}
   >
     <div className="absolute inset-0 bg-black opacity-40 rounded-[24px]"></div>
 
-<div className="absolute top-1/2 left-16 transform -translate-y-1/2 text-white max-w-[500px] z-10">
-  <h2 className="text-3xl font-bold mb-4 leading-snug">
-    با ما، هر سفر فرصتی برای کسب درآمد است
-  </h2>
-  <p className="text-lg leading-relaxed text-justify mb-6">
-    کافیست در مسیر سفر، بارهای کوچک و مطمئن دیگران را همراه ببرید و بخشی یا تمام هزینه‌های سفر را جبران کنید.
-    ما با بستری امن، پشتیبانی ۲۴ ساعته، پرداخت مطمئن و ثبت سفارش آسان، سفری لذت‌بخش و سودآور برایتان فراهم کرده‌ایم.
-  </p>
-  {isLargeScreen && (
-    <div className="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-4 border border-white border-opacity-20">
-      <h3 className="text-xl font-semibold mb-2 text-yellow-300">
-        هر سفر، یک فرصت طلایی
-      </h3>
-      <p className="text-sm leading-relaxed">
-        با پکسی، هر سفری که می‌روید می‌تواند منبع درآمد شما باشد. فقط کافی است بارهای کوچک و امن را همراه ببرید.
-      </p>
-    </div>
-  )}
+<div className="absolute top-1/2 left-4 md:left-16 transform -translate-y-1/2 text-white max-w-[calc(100%-2rem)] md:max-w-[600px] z-10">
+  <div className="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-6 border border-white border-opacity-30 shadow-2xl">
+    <h2 className="text-2xl md:text-3xl font-bold mb-4 leading-snug">
+      با ما، هر سفر فرصتی برای کسب درآمد است
+    </h2>
+    <p className="text-base md:text-lg leading-relaxed text-justify mb-6">
+      کافیست در مسیر سفر، بارهای کوچک و مطمئن دیگران را همراه ببرید و بخشی یا تمام هزینه‌های سفر را جبران کنید.
+      ما با بستری امن، پشتیبانی ۲۴ ساعته، پرداخت مطمئن و ثبت سفارش آسان، سفری لذت‌بخش و سودآور برایتان فراهم کرده‌ایم.
+    </p>
+  </div>
+  
+  {/* کادر ویژه برای متن "هر سفر، یک فرصت طلایی" */}
+  <div className="mt-4 bg-gradient-to-r from-amber-500/20 to-orange-500/20 backdrop-blur-sm rounded-xl p-4 border border-amber-400/40 shadow-xl">
+    <h3 className="text-lg md:text-xl font-bold mb-2 text-amber-300 drop-shadow-lg">
+      هر سفر، یک فرصت طلایی
+    </h3>
+    <p className="text-sm md:text-base leading-relaxed text-amber-100">
+      با پکسی، هر سفری که می‌روید می‌تواند منبع درآمد شما باشد. فقط کافی است بارهای کوچک و امن را همراه ببرید.
+    </p>
+  </div>
 </div>
 
 
@@ -72,7 +74,7 @@ function Header({ screenHeight, isLargeScreen }: HeaderProps) {
 
   <img
     className={`absolute right-0 -mr-[80px] top-1/2 -translate-y-1/2 z-20 ${
-      isLargeScreen ? 'w-[700px] max-w-[700px]' : 'w-[900px]'
+      isLargeScreen ? 'w-[600px] max-w-[600px]' : 'w-[600px]'
     }`}
     src={AirPlane}
     alt="Airplane"
