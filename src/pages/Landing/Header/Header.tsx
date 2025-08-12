@@ -4,7 +4,12 @@ import SearchBox from './SearchBox';
 import Logo from '../../../assets/images/packsi-Logo.png';
 import cloudySky from "../../../assets/images/pexels-konevi-3789871.jpg";
 
-function Header() {
+interface HeaderProps {
+  screenHeight: number;
+  isLargeScreen: boolean;
+}
+
+function Header({ screenHeight, isLargeScreen }: HeaderProps) {
   return (
     <>
       <div className="flex items-center justify-between w-full px-[65px] py-4 mt-4">
@@ -35,7 +40,7 @@ function Header() {
         </button>
       </div>
 
-<div className="relative h-[calc(100vh-200px)] mb-[30px] mx-[50px]">
+<div className={isLargeScreen ? "relative mb-[30px] mx-[50px]" : "relative h-[calc(100vh-200px)] mb-[30px] mx-[50px]"} style={isLargeScreen ? { height: `${Math.min(screenHeight * 0.6, 650)}px` } : {}}>
   <div
     className="relative h-full bg-cover bg-center rounded-[24px]"
     style={{ backgroundImage: `url(${cloudySky})` }}
@@ -46,17 +51,29 @@ function Header() {
   <h2 className="text-3xl font-bold mb-4 leading-snug">
     با ما، هر سفر فرصتی برای کسب درآمد است
   </h2>
-  <p className="text-lg leading-relaxed text-justify">
+  <p className="text-lg leading-relaxed text-justify mb-6">
     کافیست در مسیر سفر، بارهای کوچک و مطمئن دیگران را همراه ببرید و بخشی یا تمام هزینه‌های سفر را جبران کنید.
     ما با بستری امن، پشتیبانی ۲۴ ساعته، پرداخت مطمئن و ثبت سفارش آسان، سفری لذت‌بخش و سودآور برایتان فراهم کرده‌ایم.
   </p>
+  {isLargeScreen && (
+    <div className="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-4 border border-white border-opacity-20">
+      <h3 className="text-xl font-semibold mb-2 text-yellow-300">
+        هر سفر، یک فرصت طلایی
+      </h3>
+      <p className="text-sm leading-relaxed">
+        با پکسی، هر سفری که می‌روید می‌تواند منبع درآمد شما باشد. فقط کافی است بارهای کوچک و امن را همراه ببرید.
+      </p>
+    </div>
+  )}
 </div>
 
 
   </div>
 
   <img
-    className="absolute right-0 w-[900px] -mr-[80px] top-1/2 -translate-y-1/2 z-20"
+    className={`absolute right-0 -mr-[80px] top-1/2 -translate-y-1/2 z-20 ${
+      isLargeScreen ? 'w-[700px] max-w-[700px]' : 'w-[900px]'
+    }`}
     src={AirPlane}
     alt="Airplane"
   />
