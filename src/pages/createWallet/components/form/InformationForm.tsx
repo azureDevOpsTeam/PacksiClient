@@ -171,7 +171,6 @@ const initialValues = {
         {() => (
           <Form className="w-full gap-[8px] flex flex-col">
             <div className="absolute bg-white pr-1 left-[16px] flex items-center gap-2 top-[16px] h-8">
-              {/* <DeleteIcon className="cursor-pointer" onClick={handleDelete} /> */}
               {editable ? (
                 <button
                   type="submit"

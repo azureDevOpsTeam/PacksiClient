@@ -15,6 +15,7 @@ export const ApiUrls :any = {
   GetNodeTypesDropDown :`${BaseUrl}/NodeData/GetNodeTypesDropDown`,
 };
 export const SignIn = `https://web.draton.io/api/Identity/SignIn`;
+export const SignUp = `https://web.draton.io/api/Identity/SignUp`;
 export const LoginRequest = `${BaseUrl}/Users/Login`;
 export const NodeRequest = `${BaseUrl}/Nodes/GetNodes`;
 export const FleetRequest = `${BaseUrl}/Fleets/GetFleets`;
