@@ -1,6 +1,6 @@
 import React from 'react';
 import SignUpForm from '../components/Form/SignUpForm';
-import LoginAirplane from '../../../assets/images/LoginAirplan.png';
+import LoginAirplane from "../../../assets/images/LoginAirplan.png";
 
 function View() {
   return (

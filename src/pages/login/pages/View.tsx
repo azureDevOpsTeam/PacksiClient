@@ -1,6 +1,6 @@
 import React from 'react';
 import LoginForm from '../components/Form/LoginForm';
-import LoginAirplane from '../../../assets/images/LoginAirplan.png';
+import LoginAirplane from "../../../assets/images/LoginAirplan.png";
 
 function View() {
   return (
@@ -12,7 +12,7 @@ function View() {
         <img
           src={LoginAirplane}
           alt="Airplane"
-          className="h-full w-full object-cover"
+          className="h-full  object-cover"
         />
       </div>
     </div>
