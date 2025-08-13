@@ -31,7 +31,9 @@ function Landing() {
       
   <Header screenHeight={screenHeight} isLargeScreen={isLargeScreen} />
 
- <HeroSection screenHeight={screenHeight} isLargeScreen={isLargeScreen} />
+ <div className="hidden md:block">
+   <HeroSection screenHeight={screenHeight} isLargeScreen={isLargeScreen} />
+ </div>
 <LastTravel/>
         <FeatureSection/>
         <DrivingTraining/>

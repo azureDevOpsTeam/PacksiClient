@@ -47,7 +47,7 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <div
       dir="rtl"
-      className="w-full h-screen flex "
+      className="w-full h-screen "
       style={{ backgroundColor: colors.background }}
     >
       {/* {!unMountLayout && (
