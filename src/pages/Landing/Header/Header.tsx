@@ -5,6 +5,7 @@ import Logo from '../../../assets/images/packsi-Logo.png';
 import cloudySky from "../../../assets/images/pexels-konevi-3789871.jpg";
 import Lottie from 'lottie-react';
 import worldmapAnimation from '../../../assets/lottie/worldmap.json';
+import TabBar from './TabBar';
 
 interface HeaderProps {
   screenHeight: number;
@@ -12,9 +13,11 @@ interface HeaderProps {
 }
 
 function Header({ screenHeight, isLargeScreen }: HeaderProps) {
+  const [activeTab, setActiveTab] = React.useState('home');
+
   return (
     <>
-      <div className="flex items-center justify-between w-full px-[65px] py-4 mt-4">
+      <div className="hidden sm:flex items-center justify-between w-full px-[65px] py-4 mt-4">
         <div className="flex items-center gap-2">
           <img src={Logo} className="h-[50px]" alt="Logo" />
         </div>
@@ -88,17 +91,17 @@ function Header({ screenHeight, isLargeScreen }: HeaderProps) {
          <>
            {/* نمایش Lottie فقط در حالت sm */}
            <div className="block sm:hidden relative mb-[30px] mx-[50px] flex items-center justify-center">
-             <div className="w-full h-full max-w-[800px] max-h-[600px]">
+             <div className="w-full h-full max-w-[800px] max-h-[600px] opacity-70">
                <Lottie 
                  animationData={worldmapAnimation} 
                  loop={true}
                  autoplay={true}
-                 style={{ width: '100%', height: '100%' }}
+                 style={{ width: '100%', height: '100%', filter: 'brightness(0.7)' }}
                />
              </div>
              
-             {/* جعبه جستجو زیر انیمیشن */}
-             <div className="absolute left-1/2 -translate-x-1/2 bottom-[-40px] w-full flex justify-center z-30">
+             {/* جعبه جستجو زیر انیمیشن - مخفی در حالت sm */}
+             <div className="absolute left-1/2 -translate-x-1/2 bottom-[-40px] w-full flex justify-center z-30 hidden sm:block">
                <SearchBox />
              </div>
            </div>
@@ -148,6 +151,8 @@ function Header({ screenHeight, isLargeScreen }: HeaderProps) {
          </>
        )}
 
+      {/* TabBar for mobile */}
+      <TabBar activeTab={activeTab} onTabChange={setActiveTab} />
     </>
   );
 }
