@@ -35,7 +35,7 @@ function FooterSection() {
 
       {/* فوتر اصلی - Full Width */}
        <footer className="w-full text-white py-12" style={{backgroundColor: '#1d2b36'}}>
-         <div className="w-full px-4 sm:px-6 lg:px-8">
+         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
             {/* برند - در بالا */}
             <div className="mb-8">
               <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent mb-4">PacksiClient</h2>

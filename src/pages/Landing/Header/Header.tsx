@@ -57,12 +57,12 @@ function Header({ screenHeight, isLargeScreen }: HeaderProps) {
           >
             <div className="absolute inset-0 bg-black opacity-40 rounded-[24px]"></div>
 
-            <div className="absolute top-1/2 left-4 md:left-16 transform -translate-y-1/2 text-white max-w-[calc(100%-2rem)] md:max-w-[600px] z-10">
+            <div className="absolute top-1/2 left-4 md:left-16 transform -translate-y-1/2 min-[640px]:max-[1235px]:top-5 min-[640px]:max-[1235px]:transform-none text-white max-w-[calc(100%-2rem)] md:max-w-[600px] z-10">
               <div className="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-6 border border-white border-opacity-30 shadow-2xl">
                 <h2 className="text-2xl md:text-3xl font-bold mb-4 leading-snug">
                   با ما، هر سفر فرصتی برای کسب درآمد است
                 </h2>
-                <p className="text-base md:text-lg leading-relaxed text-justify mb-6">
+                <p className="text-base md:text-lg leading-relaxed text-justify mb-6 max-[1235px]:hidden min-[1236px]:block max-[639px]:block">
                   کافیست در مسیر سفر، بارهای کوچک و مطمئن دیگران را همراه ببرید و بخشی یا تمام هزینه‌های سفر را جبران کنید.
                   ما با بستری امن، پشتیبانی ۲۴ ساعته، پرداخت مطمئن و ثبت سفارش آسان، سفری لذت‌بخش و سودآور برایتان فراهم کرده‌ایم.
                 </p>
@@ -110,12 +110,12 @@ function Header({ screenHeight, isLargeScreen }: HeaderProps) {
              >
                <div className="absolute inset-0 bg-black opacity-40 rounded-[24px]"></div>
 
-               <div className="absolute top-1/2 left-4 md:left-16 transform -translate-y-1/2 text-white max-w-[calc(100%-2rem)] md:max-w-[600px] z-10">
+               <div className="absolute top-1/2 left-4 md:left-16 transform -translate-y-1/2 min-[640px]:max-[1235px]:top-5 min-[640px]:max-[1235px]:transform-none text-white max-w-[calc(100%-2rem)] md:max-w-[600px] z-10">
                  <div className="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-6 border border-white border-opacity-30 shadow-2xl">
                    <h2 className="text-2xl md:text-3xl font-bold mb-4 leading-snug">
                      با ما، هر سفر فرصتی برای کسب درآمد است
                    </h2>
-                   <p className="text-base md:text-lg leading-relaxed text-justify mb-6">
+                   <p className="text-base md:text-lg leading-relaxed text-justify mb-6 max-[1235px]:hidden min-[1236px]:block max-[639px]:block">
                      کافیست در مسیر سفر، بارهای کوچک و مطمئن دیگران را همراه ببرید و بخشی یا تمام هزینه‌های سفر را جبران کنید.
                      ما با بستری امن، پشتیبانی ۲۴ ساعته، پرداخت مطمئن و ثبت سفارش آسان، سفری لذت‌بخش و سودآور برایتان فراهم کرده‌ایم.
                    </p>
