@@ -18,7 +18,10 @@ const routes = [
   },
 
  
-  // هر مسیر دیگه‌ای که بخوای...
+ {
+  path:'/NewRequest' ,
+  element:React.lazy(()=>import("../../pages/Request/NewRequest/View"))
+ }
 ];
 
 const LazyRouter = () => {

@@ -5,27 +5,25 @@ import persian_fa from "react-date-object/locales/persian_fa";
 import { useField } from "formik";
 import { ReactComponent as CalIcon } from "../../icons/svg/calenderIcon.svg";
 
+
 interface Props {
   value: any;
   setFieldValue: (field: string, value: any) => void;
   label?: string;
-  name: string;
-  error?: string | false;
+  name?: string;
+  placeholder?: string;
 }
 
 const MultiDatePicker = ({
+  placeholder = "Select a date",
   value,
   setFieldValue,
-  label = "تاریخ",
-  name,
-  
+  label = "Date",
+  name = "toDate",
 }: Props) => {
-  const [, meta] = useField(name);
-  const hasError = meta.touched && meta.error;
-
   return (
     <div className="w-full max-w-xs">
-      <label className="mb-1 block text-sm font-semibold text-gray-700 px-1 py-2">
+      <label className="mb-1 text-right block text-sm font-semibold text-gray-700">
         {label}
       </label>
       <div className="relative">
@@ -34,22 +32,15 @@ const MultiDatePicker = ({
         </span>
         <DatePicker
           value={value}
-          onChange={(date) => {
+          onChange={(date: any) => {
             setFieldValue(name, date ? date.toDate().toISOString() : null);
           }}
-          placeholder="تا تاریخ"
-          calendar={persian}
-          locale={persian_fa}
+          placeholder={placeholder}
           calendarPosition="bottom-right"
-          inputClass={`pl-10 pr-4 border rounded-[12px] py-2 text-[#073054] text-base font-medium w-full ${
-            hasError ? "border-red-500" : "border-gray-300"
-          }`}
+          inputClass="pl-10 pr-4 border border-gray-300 rounded-[12px] py-2 text-[#073054] text-base font-semibold w-full bg-white text-right"
           containerClassName="w-full"
         />
       </div>
-      {hasError && (
-        <div className="text-sm text-red-600 mt-1 px-1">{meta.error}</div>
-      )}
     </div>
   );
 };

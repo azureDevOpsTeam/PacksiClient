@@ -3,6 +3,7 @@ import AirPlane from '../../../assets/images/airplane.png';
 import SearchBox from './SearchBox';
 import Logo from '../../../assets/images/packsi-Logo.png';
 import cloudySky from "../../../assets/images/pexels-konevi-3789871.jpg";
+import { useNavigate } from 'react-router-dom';
 import Lottie from 'lottie-react';
 import worldmapAnimation from '../../../assets/lottie/worldmap.json';
 import TabBar from './TabBar';
@@ -13,6 +14,7 @@ interface HeaderProps {
 }
 
 function Header({ screenHeight, isLargeScreen }: HeaderProps) {
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = React.useState('home');
 
   return (
@@ -28,7 +30,9 @@ function Header({ screenHeight, isLargeScreen }: HeaderProps) {
           <NavButton label="تماس با ما" />
         </div>
 
-        <button className="flex flex-row items-center gap-2 px-4 py-2 rounded-[16px] bg-[#11354D] text-white hover:bg-[#0d2538] transition-all">
+        <button 
+          onClick={()=>navigate("/login")}
+          className="flex flex-row items-center gap-2 px-4 py-2 rounded-[16px] bg-[#11354D] text-white hover:bg-[#0d2538] transition-all">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"

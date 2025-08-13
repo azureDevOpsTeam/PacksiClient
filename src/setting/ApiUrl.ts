@@ -100,3 +100,7 @@ export const GetCustomersDropDown = `${BaseUrl}/Customers/GetCustomersDropDown`;
 export const GetFinancialParcelReport = `${BaseUrl}/Report/GetFinancialParcelsReport`;
 export const GetFinancialDebtsReport = `${BaseUrl}/Report/GetFinancialDebtsReport`;
 export const GetFinancialTransactionsReport = `${BaseUrl}/Report/GetFinancialTransactionsReport`;
+export const  CreateRequest =`https://web.draton.io/api/Request/Create`;
+export const TransportableItem =`https://web.draton.io/api/BaseInfo/TransportableItem`;
+export const GetCountries =`https://web.draton.io/api/Region/GetCountries`;
+export const  GetCities =`https://web.draton.io/api/Region/GetCities`;

@@ -51,7 +51,7 @@ const TextField: React.FC<Props> = ({
       )}
 
       <div
-        className={`flex items-center relative rounded-[13px] ${innerClassName}`}
+        className={`flex items-center relative rounded-[13px] `}
       >
         {icon && (
           <div className={`p-2 absolute right-4 ${iconClassName}`}>{icon}</div>
@@ -61,13 +61,13 @@ const TextField: React.FC<Props> = ({
           {...field}
           type={isPassword ? (showPassword ? "text" : "password") : type}
           placeholder={placeholder}
-          className={`input ${
-            readonly ? "hover:cursor-default border-none" : ""
-          }
-            w-full text-[10pt] text-[#6B7280] font-medium
+          className={`input w-full text-base text-[#6B7280] font-medium 
+            rounded-[12px] h-[40px] mt-[7px] focus-within:outline-[0px]
+            ${readonly ? "hover:cursor-default border-none" : ""}
             ${theme === FieldTheme.Primary ? "bg-[#FFF]" : "bg-[#F3F4F6]"}
-            ${icon ? "pr-16" : ""}
-            rounded-[12px] focus:outline-none focus:border-gray-400 ${innerClassName}`}
+            ${icon ? "pr-12" : "pr-[14px]"}
+            text-right
+            ${touched && error ? "input-error" : ""} ${innerClassName}`}
           disabled={readonly}
         />
 

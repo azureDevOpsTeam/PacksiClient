@@ -63,12 +63,12 @@ const ContractsForm = ({ isChecked }: { isChecked: boolean }) => {
               name="registrationDate"
               value={values.registrationDate}
               setFieldValue={setFieldValue}
-              error={
-                touched.registrationDate &&
-                typeof errors.registrationDate === "string"
-                  ? errors.registrationDate
-                  : undefined
-              }
+              // error={
+              //   touched.registrationDate &&
+              //   typeof errors.registrationDate === "string"
+              //     ? errors.registrationDate
+              //     : undefined
+              // }
             />
           </div>
 
@@ -78,24 +78,24 @@ const ContractsForm = ({ isChecked }: { isChecked: boolean }) => {
               name="fromDate"
               value={values.fromDate}
               setFieldValue={setFieldValue}
-              error={
-                touched.registrationDate &&
-                typeof errors.registrationDate === "string"
-                  ? errors.registrationDate
-                  : undefined
-              }
+              // error={
+              //   touched.registrationDate &&
+              //   typeof errors.registrationDate === "string"
+              //     ? errors.registrationDate
+              //     : undefined
+              // }
             />
             <MultiDatePicker
               label="پایان همکاری"
               name="toDate"
               value={values.toDate}
               setFieldValue={setFieldValue}
-              error={
-                touched.registrationDate &&
-                typeof errors.registrationDate === "string"
-                  ? errors.registrationDate
-                  : undefined
-              }
+              // error={
+              //   touched.registrationDate &&
+              //   typeof errors.registrationDate === "string"
+              //     ? errors.registrationDate
+              //     : undefined
+              // }
             />
           </div>
         </div>

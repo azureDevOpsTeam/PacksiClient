@@ -25,6 +25,8 @@ function Landing() {
   const isLargeScreen = screenHeight > 1080;
 
   return (
+    <>
+   
     <div className='max-w-[1440px] mx-auto min-h-screen'>
       
   <Header screenHeight={screenHeight} isLargeScreen={isLargeScreen} />
@@ -36,7 +38,7 @@ function Landing() {
         <FeatureSection/>
         <DrivingTraining/>
         <HouseRent/>
-        <FooterSection/>
+    
         {/* <FooterSection/>
         <Faqsection/>
       
@@ -45,6 +47,8 @@ function Landing() {
         <Testimonials/>  */}
 
     </div>
+        <FooterSection/>
+     </>
   )
 }
 
