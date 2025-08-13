@@ -64,15 +64,7 @@ function Header({ screenHeight, isLargeScreen }: HeaderProps) {
                 </p>
               </div>
               
-              {/* کادر ویژه برای متن "هر سفر، یک فرصت طلایی" */}
-              <div className="mt-4 bg-gradient-to-r from-amber-500/20 to-orange-500/20 backdrop-blur-sm rounded-xl p-4 border border-amber-400/40 shadow-xl">
-                <h3 className="text-lg md:text-xl font-bold mb-2 text-amber-300 drop-shadow-lg">
-                  هر سفر، یک فرصت طلایی
-                </h3>
-                <p className="text-sm md:text-base leading-relaxed text-amber-100">
-                  با پکسی، هر سفری که می‌روید می‌تواند منبع درآمد شما باشد. فقط کافی است بارهای کوچک و امن را همراه ببرید.
-                </p>
-              </div>
+
             </div>
 
             <img
@@ -90,13 +82,13 @@ function Header({ screenHeight, isLargeScreen }: HeaderProps) {
       ) : (
          <>
            {/* نمایش Lottie فقط در حالت sm */}
-           <div className="block sm:hidden relative mb-[30px] mx-[50px] flex items-center justify-center">
-             <div className="w-full h-full max-w-[800px] max-h-[600px] opacity-70">
+           <div className="block sm:hidden relative mb-[10px] mx-[10px] flex items-center justify-center">
+             <div className="w-full h-full max-w-[800px] max-h-[600px] opacity-70 rounded-[24px] p-4">
                <Lottie 
                  animationData={worldmapAnimation} 
                  loop={true}
                  autoplay={true}
-                 style={{ width: '100%', height: '100%', filter: 'brightness(0.7)' }}
+                 style={{ width: '100%', height: '100%' }}
                />
              </div>
              
@@ -125,15 +117,7 @@ function Header({ screenHeight, isLargeScreen }: HeaderProps) {
                    </p>
                  </div>
                  
-                 {/* کادر ویژه برای متن "هر سفر، یک فرصت طلایی" */}
-                 <div className="mt-4 bg-gradient-to-r from-amber-500/20 to-orange-500/20 backdrop-blur-sm rounded-xl p-4 border border-amber-400/40 shadow-xl">
-                   <h3 className="text-lg md:text-xl font-bold mb-2 text-amber-300 drop-shadow-lg">
-                     هر سفر، یک فرصت طلایی
-                   </h3>
-                   <p className="text-sm md:text-base leading-relaxed text-amber-100">
-                     با پکسی، هر سفری که می‌روید می‌تواند منبع درآمد شما باشد. فقط کافی است بارهای کوچک و امن را همراه ببرید.
-                   </p>
-                 </div>
+
                </div>
 
                <img

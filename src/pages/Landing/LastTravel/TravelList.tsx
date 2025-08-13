@@ -177,15 +177,6 @@ export default function TravelList() {
       <style dangerouslySetInnerHTML={{ __html: scrollbarHideStyle }} />
       <div className="bg-white/20 backdrop-blur-lg rounded-3xl p-4 shadow-2xl border border-white/30">
       {/* Header */}
-      <div className="text-center mb-6">
-        <h3 className="text-xl font-bold text-transparent bg-gradient-to-r from-[#11354D] via-[#1e5a7a] to-[#2a6f95] bg-clip-text drop-shadow-lg mb-2">
-          پروازهای موجود
-        </h3>
-        <p className="text-lg text-gray-600">
-          بهترین قیمت‌ها و مسیرهای پروازی را انتخاب کنید
-        </p>
-      </div>
-
       {/* Scrollable Travel Cards Container */}
       <div className="relative overflow-hidden">
         <div 
