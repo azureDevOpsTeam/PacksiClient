@@ -90,7 +90,7 @@ const travelData = [
     },
     duration: '1h 45m',
     flightType: 'non-stop',
-    airline: 'TURKISH AIRLINES',
+    airline: 'TURKISH',
     price: '$620',
   },
   {
@@ -175,7 +175,7 @@ export default function TravelList() {
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: scrollbarHideStyle }} />
-      <div className="bg-white/20 backdrop-blur-lg rounded-3xl p-4 shadow-2xl border border-white/30">
+      <div>
       {/* Header */}
       {/* Scrollable Travel Cards Container */}
       <div className="relative overflow-hidden">
@@ -191,7 +191,7 @@ export default function TravelList() {
           {travelData.map((travel, index) => (
             <div 
               key={index}
-              className="flex-shrink-0 snap-start transform transition-all duration-500 hover:scale-[1.02]"
+              className="flex-shrink-0 snap-start transform transition-all duration-500 pb-4 pt-4"
               style={{ 
                 animationDelay: `${index * 0.1}s`,
                 animation: 'fadeInUp 0.6s ease-out forwards'

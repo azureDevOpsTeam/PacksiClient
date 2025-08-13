@@ -45,12 +45,7 @@ const CardList: React.FC<CardProps> = React.memo(
     sixthHead
   }) => {
     return (
-      <div
-        className={`hover:scale-[98.5%] active:scale-100 transition-all w-full shadow p-4 bg-white rounded-2xl border-[2px] flex-col justify-center items-center cursor-pointer ${
-          isSelected ? "border-[#FF7959]" : "border-transparent"
-        }`}
-        onClick={() => onSelect(id)}
-      >
+      <>
         <div className="w-full flex items-center justify-between">
           <div className="text-right text-[#111928] text-sm font-bold">
             {title}
@@ -123,7 +118,7 @@ const CardList: React.FC<CardProps> = React.memo(
             </div>
           )}
         </div>
-      </div>
+      </>
     );
   }
 );

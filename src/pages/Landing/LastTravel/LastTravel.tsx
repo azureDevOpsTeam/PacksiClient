@@ -4,9 +4,9 @@ import TravelPic from "../../../assets/images/travel.png";
 
 function LastTravel() {
   return (
-    <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-12">
       {/* Header Section */}
-      <div className="text-center mb-12">
+      <div className="text-center mb-12 hidden sm:block">
         <div className="relative inline-block">
           <h2 className="text-4xl sm:text-5xl font-bold text-transparent bg-gradient-to-r from-[#11354D] via-[#1e5a7a] to-[#2a6f95] bg-clip-text drop-shadow-lg mb-4">
             پروازهای موجود

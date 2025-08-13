@@ -31,13 +31,13 @@ function CardListView({ cards =[] ,onCardSelect, errorPage }: any) {
 
     if (!cards || cards.length === 0) {
     return (
-      <div className="flex flex-col gap-[25px] w-full pb-[40px] mt-[25px]">
+      <>
         {errorPage}
-      </div>
+      </>
     ); 
   }
   return (
-    <div className="flex flex-col gap-[25px] w-full pb-[80px] mt-[25px]   ">
+    <>
       {cards.map((card: any) => (
         <CardList
           latitude={card.latitude}
@@ -60,7 +60,7 @@ function CardListView({ cards =[] ,onCardSelect, errorPage }: any) {
           sixthHead={card?.sixthHead}
         />
       ))}
-    </div>
+    </>
   );
 }
 

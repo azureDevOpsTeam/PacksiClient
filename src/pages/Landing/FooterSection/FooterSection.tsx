@@ -36,26 +36,29 @@ function FooterSection() {
       {/* فوتر اصلی - Full Width */}
        <footer className="w-full text-white py-12" style={{backgroundColor: '#1d2b36'}}>
          <div className="w-full px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              
-              {/* برند */}
-              <div className="lg:col-span-2">
-                <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent mb-4">PacksiClient</h2>
-                <p className="text-gray-300 text-base leading-relaxed mb-6">
-                  ارائه‌دهنده بهترین خدمات حمل و نقل، آموزش رانندگی و اجاره املاک با تمرکز بر کیفیت، امنیت و تجربه کاربری بی‌نظیر.
-                </p>
-                <div className="flex flex-wrap gap-4">
-                  <div className="bg-blue-600/20 backdrop-blur-sm rounded-lg px-4 py-2 border border-blue-500/30">
-                    <span className="text-blue-300 text-sm font-semibold">🚗 حمل و نقل</span>
-                  </div>
-                  <div className="bg-emerald-600/20 backdrop-blur-sm rounded-lg px-4 py-2 border border-emerald-500/30">
-                    <span className="text-emerald-300 text-sm font-semibold">🎓 آموزش رانندگی</span>
-                  </div>
-                  <div className="bg-purple-600/20 backdrop-blur-sm rounded-lg px-4 py-2 border border-purple-500/30">
-                    <span className="text-purple-300 text-sm font-semibold">🏠 اجاره املاک</span>
-                  </div>
+            {/* برند - در بالا */}
+            <div className="mb-8">
+              <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent mb-4">PacksiClient</h2>
+              <p className="text-gray-300 text-base leading-relaxed mb-6">
+                ارائه‌دهنده بهترین خدمات حمل و نقل، آموزش رانندگی و اجاره املاک با تمرکز بر کیفیت، امنیت و تجربه کاربری بی‌نظیر.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <div className="bg-blue-600/20 backdrop-blur-sm rounded-lg px-4 py-2 border border-blue-500/30">
+                  <span className="text-blue-300 text-sm font-semibold">🚗 حمل و نقل</span>
+                </div>
+                <div className="bg-emerald-600/20 backdrop-blur-sm rounded-lg px-4 py-2 border border-emerald-500/30">
+                  <span className="text-emerald-300 text-sm font-semibold">🎓 آموزش رانندگی</span>
+                </div>
+                <div className="bg-purple-600/20 backdrop-blur-sm rounded-lg px-4 py-2 border border-purple-500/30">
+                  <span className="text-purple-300 text-sm font-semibold">🏠 اجاره املاک</span>
                 </div>
               </div>
+            </div>
+
+            {/* لینک‌ها و شبکه‌های اجتماعی - در موبایل کنار هم */}
+            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {/* فضای خالی برای lg */}
+              <div className="hidden lg:block lg:col-span-2"></div>
 
               {/* لینک‌های مفید */}
               <div>

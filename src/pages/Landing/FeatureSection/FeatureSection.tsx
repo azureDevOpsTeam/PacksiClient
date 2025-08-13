@@ -97,18 +97,18 @@ function FeatureSection() {
         </div>
 
         {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-min">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 md:gap-6 auto-rows-min">
           {features.map((feature, index) => {
-            const paddingClass = feature.size === 'large' ? 'p-6' : feature.size === 'medium' ? 'p-5' : feature.size === 'small' ? 'p-4' : 'p-5';
-            const iconSize = feature.size === 'large' ? 'w-14 h-14' : feature.size === 'small' ? 'w-10 h-10' : 'w-12 h-12';
-             const titleSize = feature.size === 'large' ? 'text-2xl' : feature.size === 'small' ? 'text-lg' : 'text-xl';
-             const descSize = feature.size === 'large' ? 'text-base' : feature.size === 'small' ? 'text-xs' : 'text-sm';
+            const paddingClass = feature.size === 'large' ? 'p-3 sm:p-4 md:p-6' : feature.size === 'medium' ? 'p-3 sm:p-4 md:p-5' : feature.size === 'small' ? 'p-2 sm:p-3 md:p-4' : 'p-3 sm:p-4 md:p-5';
+            const iconSize = feature.size === 'large' ? 'w-8 h-8 sm:w-10 h-10 md:w-14 h-14' : feature.size === 'small' ? 'w-6 h-6 sm:w-8 h-8 md:w-10 h-10' : 'w-7 h-7 sm:w-9 h-9 md:w-12 h-12';
+             const titleSize = feature.size === 'large' ? 'text-sm sm:text-lg md:text-2xl' : feature.size === 'small' ? 'text-xs sm:text-base md:text-lg' : 'text-sm sm:text-lg md:text-xl';
+             const descSize = feature.size === 'large' ? 'text-xs sm:text-sm md:text-base' : feature.size === 'small' ? 'text-[10px] sm:text-xs md:text-xs' : 'text-xs sm:text-sm md:text-sm';
             
             return (
               <div
                 key={index}
                 className={`
-                  ${feature.bgGradient} ${feature.shadow} ${feature.corners} ${feature.layout.span} ${feature.layout.height}
+                  ${feature.bgGradient} ${feature.shadow} ${feature.corners} ${feature.layout.span} h-32 sm:h-36 md:h-48
                   border border-white/50 backdrop-blur-sm
                   transform transition-all duration-500 ease-out
                   group cursor-pointer overflow-hidden
@@ -125,39 +125,43 @@ function FeatureSection() {
 
                 {/* Content */}
                 <div className="relative z-10 text-right">
-                  {/* Icon */}
-                  <div className={`
-                    ${feature.iconBg} ${iconSize} rounded-2xl flex items-center justify-center
-                    mb-4 shadow-lg
-                    mr-auto transform transition-all duration-300
-                    group-hover:scale-110 group-hover:rotate-3
-                  `}>
-                    <span className={`${feature.size === 'large' ? 'text-2xl' : feature.size === 'small' ? 'text-lg' : 'text-xl'} filter drop-shadow-sm`}>{feature.icon}</span>
-                  </div>
+                  {/* Icon and Title Container */}
+                  <div className="flex flex-col md:flex-row md:items-center md:gap-3 mb-2 md:mb-4">
+                    {/* Icon */}
+                    <div className={`
+                      ${feature.iconBg} ${iconSize} rounded-xl md:rounded-2xl flex items-center justify-center
+                      mb-2 md:mb-0 shadow-lg
+                      mr-auto md:mr-0 transform transition-all duration-300
+                      group-hover:scale-110 group-hover:rotate-3
+                    `}>
+                      <span className={`${feature.size === 'large' ? 'text-sm sm:text-lg md:text-2xl' : feature.size === 'small' ? 'text-xs sm:text-base md:text-lg' : 'text-sm sm:text-lg md:text-xl'} filter drop-shadow-sm`}>{feature.icon}</span>
+                    </div>
 
-                  {/* Title */}
-                  <h3 className={`
-                    ${titleSize} font-bold mb-2 ${feature.titleColor}
-                    transform transition-all duration-300
-                    group-hover:text-opacity-90
-                  `}>
-                    {feature.title}
-                  </h3>
+                    {/* Title */}
+                    <h3 className={`
+                      ${titleSize} font-bold ${feature.titleColor}
+                      transform transition-all duration-300
+                      group-hover:text-opacity-90 md:flex-1
+                    `}>
+                      {feature.title}
+                    </h3>
+                  </div>
 
                   {/* Description */}
                   <p className={`
                     ${descSize} leading-relaxed ${feature.textColor}
                     transform transition-all duration-300
+                    hidden md:block
                   `}>
                     {feature.description}
                   </p>
 
                   {/* Decorative Element */}
-                  <div className="mt-6 flex justify-end">
+                  <div className="mt-2 md:mt-6 flex justify-end">
                     <div className={`
-                      w-12 h-1 ${feature.iconBg} rounded-full
+                      w-8 h-0.5 md:w-12 md:h-1 ${feature.iconBg} rounded-full
                       transform transition-all duration-500
-                      group-hover:w-16
+                      group-hover:w-12 md:group-hover:w-16
                     `}></div>
                   </div>
                 </div>
