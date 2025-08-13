@@ -3,7 +3,6 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import SignUpForm from "../../pages/login/pages/SignUpView";
 import Loading from "../tools/loading/Loading";
 import Landing from "../../pages/Landing/Landing";
-import { Landing4 } from "../../pages/Landing4";
 import Login from "../../pages/login/pages/View";
 
 
@@ -17,10 +16,7 @@ const routes = [
     path: "/landing",
     element: React.lazy(() => import("../../pages/Landing/Landing")),
   },
-  {
-    path: "/landing4",
-    element: React.lazy(() => import("../../pages/Landing4/Landing4")),
-  },
+
  
   // هر مسیر دیگه‌ای که بخوای...
 ];
@@ -31,7 +27,6 @@ const LazyRouter = () => {
       <Routes>
         <Route path="/SignUp" element={<SignUpForm/>}></Route>
         <Route path="/landing" element={<Landing />} />
-        <Route path="/landing4" element={<Landing4 />} />
         <Route path="/login" element={<Login />} />
 
         {/* مسیر پیش‌فرض */}
