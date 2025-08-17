@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import { motion, PanInfo } from "framer-motion";
-import { useTheme } from "../../hooks/theme/ThemeContext";
+import { useTheme } from "../../hooks/context/ThemeContext";
 
 interface BottomSheetProps {
     children: React.ReactNode;
@@ -75,7 +75,7 @@ const BottomSheet: React.FC<BottomSheetProps> = ({
                 dragListener={false}
                 className="w-full shadow rounded-t-[30px] pointer-events-auto"
                 style={{
-                    backgroundColor: colors.background,
+                    backgroundColor: colors.background.primary,
                     height: `${currentHeight}px`,
                     touchAction: "none",
                 }}

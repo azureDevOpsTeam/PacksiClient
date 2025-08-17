@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useTheme } from "../../hooks/theme/ThemeContext";
+import { useTheme } from "../../hooks/context/ThemeContext";
 import { Sidebar } from "../sidebar/Sidebar";
 import { useLocation } from "react-router-dom";
 import DrawerContent from "./DrawerContent";
 import { GetUserToken } from "../../../services/api/ApiToken";
+
 import { ReactComponent as MiniIcon } from "../../icons/svg/miniIconRed.svg";
 
 import "aos/dist/aos.css";
@@ -14,7 +15,7 @@ const ALLOWED_ROUTES = ["/login", "/register", "/forgot-password"];
 
 const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [mini, setMini] = useState<boolean>(false);
-  const { colors } = useTheme();
+
   const location = useLocation();
 
 
@@ -48,7 +49,7 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     <div
       dir="rtl"
       className="w-full h-screen "
-      style={{ backgroundColor: colors.background }}
+      style={{ backgroundColor:  "white" }}
     >
       {/* {!unMountLayout && (
         <div className="lg:flex hidden relative">

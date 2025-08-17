@@ -3,7 +3,7 @@ import ProgressBar from "../../../../components/icons/ProgressBar";
 import ChartComponent from "../../../../components/chart/ChartLine";
 import ChartLine from "../../../../components/chart/ChartLine";
 import ChartBar from "../../../../components/chart/ChartBar";
-import {useTheme} from "../../../../components/hooks/theme/ThemeContext";
+import {useTheme} from "../../../../components/hooks/context/ThemeContext";
 import TruncatedText from "../../../../components/tools/text/TruncatedText";
 import {messages, redChartData, whiteChartData} from "../../../../assets/mock/mockData";
 import DynamicTabs from "../../../../components/tools/tab/DynamicTabs";

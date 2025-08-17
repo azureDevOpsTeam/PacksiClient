@@ -1,4 +1,4 @@
-import { useTheme } from "../../../../components/hooks/theme/ThemeContext";
+import { useTheme } from "../../../../components/hooks/context/ThemeContext";
 import { useMemo } from "react";
 import DynamicTable from "../../../../components/tools/table/DynamicTable";
 import Tag from "../../../../components/tools/tags/Tag";

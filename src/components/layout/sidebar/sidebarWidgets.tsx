@@ -3,7 +3,7 @@ import { menuData, SupervisorMenuData ,FinancialMenuData ,SaMenuData } from "./m
 import SidebarMenuMini from "./SidebarMenuMini";
 import SidebarMenuDesktop from "./SidebarMenuDesktop";
 import { useLocation } from "react-router-dom";
-import { useTheme } from "../../../components/hooks/theme/ThemeContext";
+import { useTheme } from "../../../components/hooks/context/ThemeContext";
 import SkeletonDiv from "../../tools/loading/SkeletonDiv";
 import ProgressBar from "../../icons/ProgressBar";
 import { ReactComponent as UserMiniIcon } from "../../icons/svg/userMiniIcon.svg";
