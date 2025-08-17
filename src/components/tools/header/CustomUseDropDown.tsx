@@ -21,7 +21,7 @@ function CustomUseDropDown() {
       </button>
 
       {openDropDown && (
-        <div className="absolute top-full left-0 mt-2 w-48 bg-white shadow-lg border rounded-lg z-10">
+        <div className="absolute top-full left-0 mt-2 w-48 bg-white  shadow-lg border rounded-lg ">
           <ul className="p-2">
             <li onClick={() => handleNavigate('/profile')} className="py-1 px-2 hover:bg-gray-100 cursor-pointer">پروفایل</li>
             <li onClick={() => handleNavigate("/RequestList")} className="py-1 px-2 hover:bg-gray-100 cursor-pointer">درخواست های من</li>

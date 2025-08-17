@@ -110,7 +110,7 @@ export default function MonthlyTarget() {
               Target you’ve set for each month
             </p>
           </div>
-          <div className="relative inline-block">
+          {/* <div className="relative inline-block">
             <button className="dropdown-toggle" onClick={toggleDropdown}>
               <MoreDotIcon className="text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 size-6" />
             </button>
@@ -132,7 +132,7 @@ export default function MonthlyTarget() {
                 Delete
               </DropdownItem>
             </Dropdown>
-          </div>
+          </div> */}
         </div>
 <div className="flex flex-col sm:flex-row sm:justify-between sm:gap-0 gap-6 mt-6">
   {chartData.map((data, index) => (

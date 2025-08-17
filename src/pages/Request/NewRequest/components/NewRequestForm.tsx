@@ -28,7 +28,7 @@ const NewRequsetForm = () => {
   const [originAvailable,setOriginAvailable]= useState<any[]>([]);
   const [destinationAvailable,setDestinationAvailable]=useState<any[]>([]);
   const [selectedOriginCountry, setSelectedOriginCountry] = useState<Number>();
-  const [formFiles, setFormFiles] = useState<{ [key: string]: FileList }>({});
+  const [formFiles, setFormFiles] = useState<File[]>([]);
   const [isCargoInfoOpen, setIsCargoInfoOpen] = useState<boolean>(false);
   
   const apiDetails = {
@@ -47,8 +47,8 @@ const NewRequsetForm = () => {
   });
 
 
-  const handleFileChange = (name: string, files: FileList) => {
-    setFormFiles((prev) => ({ ...prev, [name]: files }));
+  const handleFileChange = (name: string, files: File[]) => {
+    setFormFiles(files);
   };
 const { mutate, isSuccess, error } = useReactMutation(
     apiDetails,
@@ -59,39 +59,36 @@ const { mutate, isSuccess, error } = useReactMutation(
       console.log("❌ خطا:", err);
     }
   );
-const handleSubmit = (values: any) => {
+const handleSubmit = async (values: any) => {
+  // آپلود فایل‌ها و دریافت URL آنها
+  let fileUrls: string[] = [];
+  
+  if (formFiles.length > 0) {
+    // در اینجا باید فایل‌ها را آپلود کنید و URL آنها را دریافت کنید
+    // برای مثال:
+    // fileUrls = await uploadFiles(formFiles);
+    // فعلاً برای تست، نام فایل‌ها را به عنوان string استفاده می‌کنیم
+    fileUrls = formFiles.map(file => file.name);
+  }
 
   const FinalData = {
     model: {
       originCityId: Number(values.originCityId) || 0,
-      // destinationCityId: Number(values.destinationCityId) || 0,
+      destinationCityId: Number(values.destinationCityId) || 0,
       departureDate: values.departureDate,
       arrivalDate: values.arrivalDate,
       requestType: Number(values.requestType) || 0,
-      // suggestedPrice: Number(values.suggestedPrice) || 0,
       description: values.description,
       maxWeightKg: Number(values.maxWeightKg) || 0,
       maxLengthCm: Number(values.maxLengthCm) || 0,
       maxWidthCm: Number(values.maxWidthCm) || 0,
       maxHeightCm: Number(values.maxHeightCm) || 0,
-      itemTypeIds: [Number(values.requestType)],
-      // availableOrigins: originAvailable,
-      // availableDestinations: destinationAvailable
+      itemTypeIds: Array.isArray(values.itemTypeIds) ? values.itemTypeIds.map((id: any) => Number(id)) : [Number(values.itemTypeIds)],
+      files: fileUrls
     }
   };
- console.log('FinalData',FinalData)
-  // اضافه کردن فایل‌ها به FormData
-  // if (Object.keys(formFiles).length > 0) {
-  //   const formData = new FormData();
-  //   Object.entries(formFiles).forEach(([key, files]) => {
-  //     for (let i = 0; i < files.length; i++) {
-  //       formData.append(key, files[i]);
-  //     }
-  //   });
-  //   // در اینجا می‌توانید formData را به همراه FinalData ارسال کنید
-  //   // یا در صورت نیاز به endpoint جداگانه برای آپلود فایل استفاده کنید
-  // }
-
+  
+  console.log('FinalData', FinalData);
   mutate(FinalData);
 };
 
@@ -117,9 +114,24 @@ const { data: cityData } = useReactQuery({
   enabled: !!selectedOriginCountry,
 });
 
-
+const { data: destinationCityData } = useReactQuery({
+  url: GetCities,
+  method: HttpMethod.POST,
+  body: {
+    model: {
+      id: selectedDestinationCountry,
+    },
+  },
+  enabled: !!selectedDestinationCountry,
+});
 
 const cityList =cityData?.data?.objectResult?.listItems?.map((item:any)=>(
+  {value:item.value,
+    label:item.label
+  }
+));
+
+const destinationCityList = destinationCityData?.data?.objectResult?.listItems?.map((item:any)=>(
   {value:item.value,
     label:item.label
   }
@@ -228,13 +240,13 @@ return (
         />
       </div>
 
-      {/* <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <AutoComplete
           inputClassName="rounded-lg border border-gray-300 text-right w-full"
           className="w-full"
           name="destinationCountryId"
           options={countryList}
-          onChange={(values :any)=>setSelectedDestinationCountry(Number(values.value))}
+          onChange={(values :any)=>setSelectedDestinationCountry(values)}
           placeholder="کشور مقصد"
           label="کشور مقصد"
         />
@@ -246,7 +258,7 @@ return (
           placeholder="شهر مقصد"
           label="شهر مقصد"
         />
-      </div> */}
+      </div>
 
       {/* <div className="border rounded-[16px] p-4 space-y-4">
         <span className="block text-lg font-medium">اطلاعات مبدا شما</span>
@@ -399,10 +411,7 @@ return (
           name="file1" 
           label="آپلود تصویر بلیط" 
           onChange={(name: string, files: File[]) => {
-            // Convert File[] to FileList
-            const dataTransfer = new DataTransfer();
-            files.forEach(file => dataTransfer.items.add(file));
-            handleFileChange(name, dataTransfer.files);
+            handleFileChange(name, files);
           }} 
         />
         {/* <ImageUploader name="file2" label="آپلود تصویر بار"  onChange={(name: string, files: File[]) => {
