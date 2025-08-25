@@ -104,3 +104,4 @@ export const  CreateRequest =`https://web.draton.io/api/Request/Create`;
 export const TransportableItem =`https://web.draton.io/api/BaseInfo/TransportableItem`;
 export const GetCountries =`https://web.draton.io/api/Region/GetCountries`;
 export const  GetCities =`https://web.draton.io/api/Region/GetCities`;
+export const  UserRequests=`https://web.draton.io/api/Request/UserRequests`;

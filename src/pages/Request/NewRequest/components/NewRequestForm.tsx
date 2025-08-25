@@ -84,7 +84,7 @@ const handleSubmit = async (values: any) => {
       maxWidthCm: Number(values.maxWidthCm) || 0,
       maxHeightCm: Number(values.maxHeightCm) || 0,
       itemTypeIds: Array.isArray(values.itemTypeIds) ? values.itemTypeIds.map((id: any) => Number(id)) : [Number(values.itemTypeIds)],
-      files: fileUrls
+      // files: fileUrls
     }
   };
   

@@ -7,4 +7,4 @@ export const AuthApiHeader = new Headers();
 AuthApiHeader.append("Content-Type", "application/json");
 
 const token = GetUserToken();    
-AuthApiHeader.append("Authorization", `Bearer ${token}`);
+AuthApiHeader.append("Authorization", `${token}`);
