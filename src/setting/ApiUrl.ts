@@ -14,8 +14,8 @@ export const ApiUrls :any = {
   TotalCapacity: `${BaseUrl}/Dashboard/TotalCapacity`,
   GetNodeTypesDropDown :`${BaseUrl}/NodeData/GetNodeTypesDropDown`,
 };
-export const SignIn = `https://web.draton.io/api/Identity/SignIn`;
-export const SignUp = `https://web.draton.io/api/Identity/SignUp`;
+export const SignIn = `https://api.packsi.net/api/Identity/SignIn`;
+export const SignUp = `https://api.packsi.net/api/Identity/SignUp`;
 export const LoginRequest = `${BaseUrl}/Users/Login`;
 export const NodeRequest = `${BaseUrl}/Nodes/GetNodes`;
 export const FleetRequest = `${BaseUrl}/Fleets/GetFleets`;
@@ -100,8 +100,8 @@ export const GetCustomersDropDown = `${BaseUrl}/Customers/GetCustomersDropDown`;
 export const GetFinancialParcelReport = `${BaseUrl}/Report/GetFinancialParcelsReport`;
 export const GetFinancialDebtsReport = `${BaseUrl}/Report/GetFinancialDebtsReport`;
 export const GetFinancialTransactionsReport = `${BaseUrl}/Report/GetFinancialTransactionsReport`;
-export const  CreateRequest =`https://web.draton.io/api/Request/Create`;
-export const TransportableItem =`https://web.draton.io/api/BaseInfo/TransportableItem`;
-export const GetCountries =`https://web.draton.io/api/Region/GetCountries`;
-export const  GetCities =`https://web.draton.io/api/Region/GetCities`;
-export const  UserRequests=`https://web.draton.io/api/Request/UserRequests`;
+export const CreateRequest = `https://api.packsi.net/api/Request/Create`;
+export const TransportableItem = `https://api.packsi.net/api/BaseInfo/TransportableItem`;
+export const GetCountries = `https://api.packsi.net/api/Region/GetCountries`;
+export const GetCities = `https://api.packsi.net/api/Region/GetCities`;
+export const  UserRequests=`https://api.packsi.net/api/Request/UserRequests`;

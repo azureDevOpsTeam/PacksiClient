@@ -12,7 +12,7 @@ AuthApiHeader.append("Content-Type", "application/json");
 
 const token = GetUserToken();
 if (token) {
-  AuthApiHeader.append("Authorization", `${token}`);
+  AuthApiHeader.append("Authorization", `Bearer ${token}`);
 }
 
 export const useReactQuery = (apiDetails: any, options: any = {}) => {
