@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Formik } from "formik";
 import MultiDatePicker from "../../../../components/tools/datepicker/MultiDatePicker";
+import { HttpMethod } from "../../../../models/enums/HttpMethod";
+import { useReactQuery } from "../../../../components/hooks/query/useReactQuery";
 import TextArea from "../../../../components/tools/textArea/TextArea";
 import ImageUploader from "../../../../components/tools/fileUpload/ImageUploader";
 import {
@@ -27,44 +29,67 @@ const NewRequsetForm = () => {
   const [isCargoInfoOpen, setIsCargoInfoOpen] = useState<boolean>(false);
   const [countryList, setCountryList] = useState<any[]>([]);
   const [cityList, setCityList] = useState<any[]>([]);
-  const [destinationCityList, setDestinationCityList] = useState<any[]>([]);
+  const [selectedCountry, setDestinationCityList] = useState<any[]>([]);
   const [itemList, setItemList] = useState<any[]>([]);
 
   const token = GetUserToken();
 
+  const customerWallet = {
+    url: GetCities,
+    method: HttpMethod.POST,
+    body: {
+      model: {
+        id: selectedOriginCountry,
+      },
+    },
+  };
+  const destinationCityApiDetail = {
+    url: GetCities,
+    method: HttpMethod.POST,
+    body: {
+      model: {
+        id: selectedDestinationCountry,
+      },
+    },
+  };
+  const { data: destinationCityData, isLoading: destinationCountryLoading } =
+    useReactQuery(destinationCityApiDetail, {
+      enabled: !!selectedDestinationCountry,
+    });
+  const {
+    data: originCityData,
+    isLoading: selectedOriginCountryLoading,
+  } = useReactQuery(customerWallet, {
+    enabled: !!selectedDestinationCountry,
+  });
+  
   const fetchCountries = async () => {
     const res = await fetch(GetCountries, {
       headers: { Authorization: `Bearer ${token}` },
     });
     const result = await res.json();
     
- console.log("result", result?.objectResult);
     setCountryList(
-      result?.data?.objectResult?.listItems.map((i: any) => ({
+      result?.objectResult?.listItems.map((i: any) => ({
         value: i.value,
         label: i.label,
       }))
     );
   };
 
- console.log("countryList", countryList);
-  const fetchCities = async (countryId: number, isDestination = false) => {
-    const res = await fetch(GetCities, {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ model: { id: countryId } }),
-    });
-    const result = await res.json();
-    const list = result?.data?.objectResult?.listItems.map((i: any) => ({
-      value: i.value,
-      label: i.label,
-    }));
-    isDestination ? setDestinationCityList(list) : setCityList(list);
-  };
 
+ const OriginCityList = originCityData?.data?.objectResult?.listItems?.map(
+  (item: any) => ({
+    value: item.value,
+    label: item.label,
+  })
+);
+const DestinationCityList =
+  destinationCityData?.data?.objectResult?.listItems?.map((item: any) => ({
+    value: item.value,
+    label: item.label,
+  }));
+console.log('OriginCityList',OriginCityList)
   const fetchItems = async () => {
     const res = await fetch(TransportableItem, {
       headers: { Authorization: `Bearer ${token}` },
@@ -77,8 +102,6 @@ const NewRequsetForm = () => {
       }))
     );
   };
-
-  // 📌 وقتی فرم سابمیت شد
   const handleSubmit = async (values: any) => {
     const formData = new FormData();
 
@@ -181,7 +204,7 @@ const NewRequsetForm = () => {
                   inputClassName="rounded-lg border border-gray-300 text-right w-full"
                   className="w-full"
                   name="originCityId"
-                  options={cityList}
+                  options={OriginCityList}
                   placeholder="شهر مبدا"
                   label="شهر مبدا"
                 />
@@ -203,7 +226,7 @@ const NewRequsetForm = () => {
                   inputClassName="rounded-lg border border-gray-300 text-right w-full"
                   className="w-full"
                   name="destinationCityId"
-                  options={destinationCityList}
+                  options={DestinationCityList}
                   placeholder="شهر مقصد"
                   label="شهر مقصد"
                 />
